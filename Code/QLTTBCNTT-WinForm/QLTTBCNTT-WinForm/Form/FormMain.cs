@@ -151,6 +151,10 @@ namespace QLTTBCNTT_WinForm
 
         private void changePassToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Frm_ChangePass frm = new Frm_ChangePass(user);
+            //this.Hide();
+            frm.ShowDialog();
+            this.Show();
         }
     }
 }

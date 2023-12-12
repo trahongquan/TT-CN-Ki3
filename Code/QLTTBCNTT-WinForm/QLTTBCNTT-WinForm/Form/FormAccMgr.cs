@@ -102,7 +102,7 @@ namespace QLTTBCNTT_WinForm
             }           
         }
 
-	private void sửaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sửaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dtgvAcc.SelectedRows.Count > 0)
             {
@@ -122,7 +122,7 @@ namespace QLTTBCNTT_WinForm
                 MessageBox.Show("Chưa chọn dòng");
             }
         }
-        
+
         private void xoáToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dtgvAcc.SelectedRows.Count > 0)
@@ -153,10 +153,12 @@ namespace QLTTBCNTT_WinForm
         {
             Display() ;
         }
-	private void cbbQN_TextChanged(object sender, EventArgs e)
+
+
+
+        private void cbbQN_TextChanged(object sender, EventArgs e)
         {
             labelCMTQD.Text = "Số CMTQĐ: " + new QueryQuannhan().FindCMTQDbyidQN(int.Parse(cbbQN.SelectedValue.ToString()));
         }
-        
     }
 }

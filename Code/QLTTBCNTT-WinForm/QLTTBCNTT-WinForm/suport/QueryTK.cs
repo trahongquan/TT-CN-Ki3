@@ -19,6 +19,7 @@ namespace QLTTBCNTT_WinForm.suport
 
         public QueryTK() { }
         
+        
         public DataTable FindByUser(string userLogin)
         {
             DataTable accountTab = new DataTable();
@@ -43,33 +44,7 @@ namespace QLTTBCNTT_WinForm.suport
             return accountTab;
         }
 
-        public bool isTruePassword(string user, string password)
-        {
-            try
-            {
-                SqlConnection adminCnt = ConnectionString.getConnection();
-                adminCnt.Open();
-
-                string query = "select Active from AccLogin WHERE UserLogin = '" + user + "'and PassLogin = '" + password + "' and Active = 1";
-
-                SqlCommand cmd = new SqlCommand(query, adminCnt);
-
-                SqlDataReader data = cmd.ExecuteReader();
-
-                bool b = data.Read();
-               
-
-                adminCnt.Close();
-
-                return b;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi kết nối đến Cơ sở dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw ex;
-            }
-        }
-	public void Insert(Account user)
+        public void Insert(Account user)
         {
             SqlConnection sqlConnection = ConnectionString.getConnection();
             string query = "Insert into AccLogin values (@IDQuannhan, @UserLogin, @PassLogin, 1, @KindOfAcc, @TenQN, @CMTQD)";
@@ -93,6 +68,57 @@ namespace QLTTBCNTT_WinForm.suport
             catch (Exception ex)
             {
                 
+                throw ex;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
+        public void Delete(string ID)
+        {
+            SqlConnection sqlConnection = ConnectionString.getConnection();
+            string query = "Update AccLogin set PassLogin = 0, Active = 0 WHERE idAcc = @ID";
+
+            try
+            {
+                sqlConnection.Open();
+
+                sqlCMD = new SqlCommand(query, sqlConnection);
+
+                sqlCMD.Parameters.Add("@ID", SqlDbType.Char).Value = ID;
+
+                sqlCMD.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
+        public void ModifyPass(string user, string pass)
+        {
+            SqlConnection sqlConnection = ConnectionString.getConnection();
+            string query = "Update AccLogin set PassLogin = @pass WHERE UserLogin = @name";
+
+            try
+            {
+                sqlConnection.Open();
+
+                sqlCMD = new SqlCommand(query, sqlConnection);
+
+                sqlCMD.Parameters.Add("@name", SqlDbType.Char).Value = user;
+                sqlCMD.Parameters.Add("@pass", SqlDbType.Char).Value = pass;
+
+                sqlCMD.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
             finally
@@ -130,28 +156,30 @@ namespace QLTTBCNTT_WinForm.suport
             }
         }
 
-	public void Delete(string ID)
+        public bool isTruePassword(string user, string password)
         {
-            SqlConnection sqlConnection = ConnectionString.getConnection();
-            string query = "Update AccLogin set PassLogin = 0, Active = 0 WHERE idAcc = @ID";
-
             try
             {
-                sqlConnection.Open();
+                SqlConnection adminCnt = ConnectionString.getConnection();
+                adminCnt.Open();
 
-                sqlCMD = new SqlCommand(query, sqlConnection);
+                string query = "select Active from AccLogin WHERE UserLogin = '" + user + "'and PassLogin = '" + password + "' and Active = 1";
 
-                sqlCMD.Parameters.Add("@ID", SqlDbType.Char).Value = ID;
+                SqlCommand cmd = new SqlCommand(query, adminCnt);
 
-                sqlCMD.ExecuteNonQuery();
+                SqlDataReader data = cmd.ExecuteReader();
+
+                bool b = data.Read();
+               
+
+                adminCnt.Close();
+
+                return b;
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Lỗi kết nối đến Cơ sở dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
-            }
-            finally
-            {
-                sqlConnection.Close();
             }
         }
 
