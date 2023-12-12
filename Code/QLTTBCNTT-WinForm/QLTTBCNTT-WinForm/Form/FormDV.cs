@@ -30,6 +30,9 @@ namespace QLTTBCNTT_WinForm
         }
 
 
+	#region Button Funcion
+	
+	#endregion
 
 
         #region Bổ trợ
@@ -66,6 +69,18 @@ namespace QLTTBCNTT_WinForm
             }
         }
 
+	private void Display()
+        {
+            var DV = dtgvDV.SelectedRows[0];
+            cbbDoi.Text = DV.Cells[1].Value.ToString();
+            cbbTieudoan.Text = DV.Cells[2].Value.ToString();
+            cbbLudoan.Text = DV.Cells[3].Value.ToString();
+        }
+
+        private void dtgvDV_MouseClick(object sender, MouseEventArgs e)
+        {
+            Display();
+        }
         
         #endregion
     }
