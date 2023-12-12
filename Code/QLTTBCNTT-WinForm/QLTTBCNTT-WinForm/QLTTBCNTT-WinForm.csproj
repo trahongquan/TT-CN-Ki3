@@ -88,11 +88,11 @@
     <Compile Include="Form\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\FormDMLTB.cs">
+    <Compile Include="Form\FormQN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\FormDMLTB.Designer.cs">
-      <DependentUpon>FormDMLTB.cs</DependentUpon>
+    <Compile Include="Form\FormQN.Designer.cs">
+      <DependentUpon>FormQN.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\FormMain.cs">
       <SubType>Form</SubType>
@@ -121,21 +121,19 @@
       <DependentUpon>QLTTBCNTTDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="suport\ConnectionString.cs" />
-    <Compile Include="suport\QueryDonvi.cs" />
-    <Compile Include="suport\QueryLoaiTB.cs" />
     <Compile Include="suport\QueryQuannhan.cs" />
     <Compile Include="suport\QueryTK.cs" />
     <EmbeddedResource Include="Form\FormAccMgr.resx">
       <DependentUpon>FormAccMgr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form\FormDMLTB.resx">
-      <DependentUpon>FormDMLTB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormQN.resx">
+      <DependentUpon>FormQN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Frm_ChangePass.resx">
       <DependentUpon>Frm_ChangePass.cs</DependentUpon>
