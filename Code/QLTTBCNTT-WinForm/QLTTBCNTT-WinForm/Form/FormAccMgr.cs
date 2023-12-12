@@ -174,7 +174,5 @@ namespace QLTTBCNTT_WinForm
         {
             labelCMTQD.Text = "Số CMTQĐ: " + new QueryQuannhan().FindCMTQDbyidQN(int.Parse(cbbQN.SelectedValue.ToString()));
         }
-
-
     }
 }

@@ -99,10 +99,14 @@ namespace QLTTBCNTT_WinForm
         #region button header
         private void btnChildFormTB_Click(object sender, EventArgs e)
         {
+            FormTB FormTB = new FormTB();
+            OpenChildForm(FormTB, sender);
         }
 
         private void btnChildFormQN_Click(object sender, EventArgs e)
         {
+            FormQN FormQN = new FormQN();
+            OpenChildForm(FormQN, sender);
         }
 
         private void btnChildFormTBDV_Click(object sender, EventArgs e)
@@ -111,10 +115,14 @@ namespace QLTTBCNTT_WinForm
 
         private void btnChildFormDMTB_Click(object sender, EventArgs e)
         {
+            FormDMLTB FormDMLTB = new FormDMLTB();
+            OpenChildForm(FormDMLTB, sender);
         }
 
         private void btnChildFormDV_Click(object sender, EventArgs e)
         {
+            FormDV FormDV = new FormDV();
+            OpenChildForm(FormDV, sender);
         }
 
         private void btnChildFormTBQN_Click(object sender, EventArgs e)
