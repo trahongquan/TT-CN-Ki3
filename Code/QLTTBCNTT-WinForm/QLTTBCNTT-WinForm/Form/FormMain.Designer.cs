@@ -42,6 +42,8 @@ namespace QLTTBCNTT_WinForm
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.AccToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accMgrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +68,7 @@ namespace QLTTBCNTT_WinForm
             this.btnDB.TabIndex = 2;
             this.btnDB.Text = "Trang chủ";
             this.btnDB.UseVisualStyleBackColor = false;
+            this.btnDB.Click += new System.EventHandler(this.Dashboard_Click);
             // 
             // btnTB
             // 
@@ -78,6 +81,7 @@ namespace QLTTBCNTT_WinForm
             this.btnTB.TabIndex = 3;
             this.btnTB.Text = "Thiết bị";
             this.btnTB.UseVisualStyleBackColor = false;
+            this.btnTB.Click += new System.EventHandler(this.btnChildFormTB_Click);
             // 
             // btnQN
             // 
@@ -90,6 +94,7 @@ namespace QLTTBCNTT_WinForm
             this.btnQN.TabIndex = 4;
             this.btnQN.Text = "Quân nhân";
             this.btnQN.UseVisualStyleBackColor = false;
+            this.btnQN.Click += new System.EventHandler(this.btnChildFormQN_Click);
             // 
             // btnDV
             // 
@@ -102,6 +107,7 @@ namespace QLTTBCNTT_WinForm
             this.btnDV.TabIndex = 5;
             this.btnDV.Text = "Đơn vị";
             this.btnDV.UseVisualStyleBackColor = false;
+            this.btnDV.Click += new System.EventHandler(this.btnChildFormDV_Click);
             // 
             // btnTBQN
             // 
@@ -114,6 +120,7 @@ namespace QLTTBCNTT_WinForm
             this.btnTBQN.TabIndex = 6;
             this.btnTBQN.Text = "Quân nhân - Thiết bị";
             this.btnTBQN.UseVisualStyleBackColor = false;
+            this.btnTBQN.Click += new System.EventHandler(this.btnChildFormTBQN_Click);
             // 
             // btnTBDV
             // 
@@ -126,6 +133,7 @@ namespace QLTTBCNTT_WinForm
             this.btnTBDV.TabIndex = 7;
             this.btnTBDV.Text = "Đơn vị - Thiết bị";
             this.btnTBDV.UseVisualStyleBackColor = false;
+            this.btnTBDV.Click += new System.EventHandler(this.btnChildFormTBDV_Click);
             // 
             // btnLTB
             // 
@@ -138,6 +146,7 @@ namespace QLTTBCNTT_WinForm
             this.btnLTB.TabIndex = 8;
             this.btnLTB.Text = "Loại thiết bị";
             this.btnLTB.UseVisualStyleBackColor = false;
+            this.btnLTB.Click += new System.EventHandler(this.btnChildFormDMTB_Click);
             // 
             // button1
             // 
@@ -163,7 +172,9 @@ namespace QLTTBCNTT_WinForm
             // AccToolStripMenuItem
             // 
             this.AccToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.accMgrToolStripMenuItem});
+            this.accMgrToolStripMenuItem,
+            this.changePassToolStripMenuItem,
+            this.logoutToolStripMenuItem});
             this.AccToolStripMenuItem.Name = "AccToolStripMenuItem";
             this.AccToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.AccToolStripMenuItem.Text = "Tài khoản";
@@ -171,9 +182,24 @@ namespace QLTTBCNTT_WinForm
             // accMgrToolStripMenuItem
             // 
             this.accMgrToolStripMenuItem.Name = "accMgrToolStripMenuItem";
-            this.accMgrToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.accMgrToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.accMgrToolStripMenuItem.Text = "Quản lý tài khoản";
             this.accMgrToolStripMenuItem.Visible = false;
+            this.accMgrToolStripMenuItem.Click += new System.EventHandler(this.accMgrToolStripMenuItem_Click);
+            // 
+            // changePassToolStripMenuItem
+            // 
+            this.changePassToolStripMenuItem.Name = "changePassToolStripMenuItem";
+            this.changePassToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.changePassToolStripMenuItem.Text = "Đổi mật khẩu";
+            this.changePassToolStripMenuItem.Click += new System.EventHandler(this.changePassToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.logoutToolStripMenuItem.Text = "Đăng xuất";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -219,6 +245,8 @@ namespace QLTTBCNTT_WinForm
         private MenuStrip menuStrip1;
         private ToolStripMenuItem AccToolStripMenuItem;
         private ToolStripMenuItem accMgrToolStripMenuItem;
+        private ToolStripMenuItem changePassToolStripMenuItem;
+        private ToolStripMenuItem logoutToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
     }
 }

@@ -89,7 +89,35 @@ namespace QLTTBCNTT_WinForm
         }
         #endregion
 
-        
+        #region button header
+        private void btnChildFormTB_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnChildFormQN_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnChildFormTBDV_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnChildFormDMTB_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnChildFormDV_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnChildFormTBQN_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Dashboard_Click(object sender, EventArgs e)
+        {
+        }
+        #endregion
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -101,6 +129,17 @@ namespace QLTTBCNTT_WinForm
             this.Close();
         }
 
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void accMgrToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void changePassToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
