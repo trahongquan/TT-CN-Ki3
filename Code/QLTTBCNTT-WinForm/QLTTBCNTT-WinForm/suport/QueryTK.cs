@@ -130,5 +130,30 @@ namespace QLTTBCNTT_WinForm.suport
             }
         }
 
+	public void Delete(string ID)
+        {
+            SqlConnection sqlConnection = ConnectionString.getConnection();
+            string query = "Update AccLogin set PassLogin = 0, Active = 0 WHERE idAcc = @ID";
+
+            try
+            {
+                sqlConnection.Open();
+
+                sqlCMD = new SqlCommand(query, sqlConnection);
+
+                sqlCMD.Parameters.Add("@ID", SqlDbType.Char).Value = ID;
+
+                sqlCMD.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
     }
 }

@@ -123,6 +123,26 @@ namespace QLTTBCNTT_WinForm
             }
         }
         
+        private void xoáToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dtgvAcc.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    SQL.Delete(dtgvAcc.SelectedRows[0].Cells[0].Value.ToString());
+                    dtgvAcc.DataSource = SQL.getTableAccount();
+                    MessageBox.Show("Thành công");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Thất bại");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn dòng");
+            }
+        }
         #endregion
         private void txtTK_TextChanged(object sender, EventArgs e)
         {
