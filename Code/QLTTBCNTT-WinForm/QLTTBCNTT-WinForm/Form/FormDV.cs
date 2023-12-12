@@ -32,6 +32,45 @@ namespace QLTTBCNTT_WinForm
 
 	#region Button Funcion
 	
+        private void AddDV_Click(object sender, EventArgs e)
+        {
+            if (Input())
+            {
+                QueryDV.Insert(GetDV());
+                Reload();
+                dtgvDV.Refresh();
+            }
+        }
+
+        private void ModifyDV_Click(object sender, EventArgs e)
+        {
+            if (dtgvDV.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Chưa chọn dòng");
+                return;
+            }
+
+            DialogResult dlr = new DialogResult();
+
+            dlr = (DialogResult)MessageBox.Show("Sửa đổi thông tin?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dlr.Equals(DialogResult.No))
+            {
+                return;
+            }
+
+            try
+            {
+                QueryDV.Modify(GetDV(), int.Parse(dtgvDV.SelectedRows[0].Cells[0].Value.ToString()));
+                Reload();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
 	#endregion
 
 

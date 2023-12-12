@@ -64,6 +64,7 @@ namespace QLTTBCNTT_WinForm.suport
 
             return bangXM.Rows[0][1].ToString() +", "+ bangXM.Rows[0][2].ToString() + ", " + bangXM.Rows[0][3].ToString();
         }
+
         public void Insert(Donvi Donvi) // them
         {
             SqlConnection sqlConnection = ConnectionString.getConnection();
@@ -78,6 +79,35 @@ namespace QLTTBCNTT_WinForm.suport
                 sqlCMD.Parameters.Add("@TieuDoan", SqlDbType.NChar).Value = Donvi.TieuDoan1;
                 sqlCMD.Parameters.Add("@LuDoan", SqlDbType.NChar).Value = Donvi.LuDoan1;
                 
+                sqlCMD.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
+        public void Modify(Donvi Donvi, int donviID) // sua theo TT
+        {
+            SqlConnection sqlConnection = ConnectionString.getConnection();
+            string query = "UPDATE DM_Donvi SET " +
+                "Doi = @Doi, TieuDoan = @TieuDoan, LuDoan = @LuDoan " +
+                "Where IdDonvi = " + donviID;
+
+            try
+            {
+                sqlConnection.Open();
+
+                sqlCMD = new SqlCommand(query, sqlConnection);
+
+                sqlCMD.Parameters.Add("@Doi", SqlDbType.Int).Value = Donvi.Doi1;
+                sqlCMD.Parameters.Add("@TieuDoan", SqlDbType.NChar).Value = Donvi.TieuDoan1;   // gan cu the
+                sqlCMD.Parameters.Add("@LuDoan", SqlDbType.NChar).Value = Donvi.LuDoan1;
+
                 sqlCMD.ExecuteNonQuery();
             }
             catch (Exception ex)
