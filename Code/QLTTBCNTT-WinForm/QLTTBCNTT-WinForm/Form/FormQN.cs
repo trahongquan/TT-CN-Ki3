@@ -34,7 +34,17 @@ namespace QLTTBCNTT_WinForm
             dtgvQN.Columns[5].HeaderText = "ID Đơn vị";
         }
 
-        
+	#region Button Funcion        
+	private void AddQN_Click(object sender, EventArgs e)
+	{
+    		if (Input())
+    		{
+        		QueryQN.Insert(GetQN());
+        		Reload();
+        		dtgvQN.Refresh();
+    		}
+	}
+	#endregion
 
         #region Bổ trợ
 
@@ -74,7 +84,25 @@ namespace QLTTBCNTT_WinForm
             }
         }
 
+        private void Display()
+        {
+            var QN = dtgvQN.SelectedRows[0];
+            txtCMTQD.Text = QN.Cells[1].Value.ToString();
+            txtTen.Text = QN.Cells[2].Value.ToString();
+            cbbCapbac.Text = QN.Cells[3].Value.ToString();
+            cbbChucvu.Text = QN.Cells[4].Value.ToString();
+            cbbDonvi.Text = QN.Cells[5].Value.ToString();
+        }
 
+        private void dtgvQN_MouseClick(object sender, MouseEventArgs e)
+        {
+            Display();
+        }
+
+        private void cbbDonvi_TextChanged(object sender, EventArgs e)
+        {
+            if(cbbDonvi.Text != "") labDV.Text = QueryQN.getDV_Quannhan(cbbDonvi.Text);
+        }
         #endregion
 
     }

@@ -41,7 +41,33 @@ namespace QLTTBCNTT_WinForm.suport
             return bangXM;
         }
 
-        
+        public void Insert(Quannhan Quannhan) // them
+{
+    SqlConnection sqlConnection = ConnectionString.getConnection();
+    string query = "Insert into DM_QuanNhan values " +
+        "( @CMTQD, @Ten, @Capbac, @Chucvu, @idDonvi)";
+    try
+    {
+        sqlConnection.Open();
+
+        sqlCMD = new SqlCommand(query, sqlConnection);
+        sqlCMD.Parameters.Add("@CMTQD", SqlDbType.NChar).Value = Quannhan.CMTQD1;   // gan cu the
+        sqlCMD.Parameters.Add("@Ten", SqlDbType.NChar).Value = Quannhan.Ten1;
+        sqlCMD.Parameters.Add("@Capbac", SqlDbType.NChar).Value = Quannhan.Capbac1;
+        sqlCMD.Parameters.Add("@Chucvu", SqlDbType.NChar).Value = Quannhan.Chucvu1;
+        sqlCMD.Parameters.Add("@idDonvi", SqlDbType.Int).Value = Quannhan.IdDonvi;
+
+        sqlCMD.ExecuteNonQuery();
+    }
+    catch (Exception ex)
+    {
+        throw ex;
+    }
+    finally
+    {
+        sqlConnection.Close();
+    }
+}
         #endregion
 
         
