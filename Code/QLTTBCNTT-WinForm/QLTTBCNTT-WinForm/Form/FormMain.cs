@@ -40,20 +40,20 @@ namespace QLTTBCNTT_WinForm
             if (i == 2)
             {
                 accMgrToolStripMenuItem.Visible = false;
+                btnTB.Visible = false;
+                btnQN.Visible = false;
+                btnDV.Visible = false;
+                btnTBQN.Visible = false;
+                btnTBDV.Visible = false;
+                btnLTB.Visible = false;
             }
             if (i == 3)
             {
                 accMgrToolStripMenuItem.Visible = false;
+                btnDB.Visible = false;
             }
 
         }
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        
-        
 
         #region bổ trợ
         private void ActivateButton(object btnSender)
@@ -89,9 +89,57 @@ namespace QLTTBCNTT_WinForm
         }
         #endregion
 
+        #region button header
+        private void btnChildFormTB_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnChildFormQN_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnChildFormTBDV_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnChildFormDMTB_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnChildFormDV_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnChildFormTBQN_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Dashboard_Click(object sender, EventArgs e)
+        {
+        }
+        #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void accMgrToolStripMenuItem_Click(object sender, EventArgs e)
         {
         }
 
+        private void changePassToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
