@@ -30,12 +30,135 @@ namespace QLTTBCNTT_WinForm
         /// </summary>
         private void InitializeComponent()
         {
+            this.panelDesktopPane = new System.Windows.Forms.Panel();
+            this.btnDB = new System.Windows.Forms.Button();
+            this.btnTB = new System.Windows.Forms.Button();
+            this.btnQN = new System.Windows.Forms.Button();
+            this.btnDV = new System.Windows.Forms.Button();
+            this.btnTBQN = new System.Windows.Forms.Button();
+            this.btnTBDV = new System.Windows.Forms.Button();
+            this.btnLTB = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.AccToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accMgrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.panelDesktopPane = new System.Windows.Forms.Panel();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panelDesktopPane
+            // 
+            this.panelDesktopPane.BackgroundImage = global::QLTTBCNTT_WinForm.Properties.Resources.BG;
+            this.panelDesktopPane.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelDesktopPane.Location = new System.Drawing.Point(166, 7);
+            this.panelDesktopPane.Name = "panelDesktopPane";
+            this.panelDesktopPane.Size = new System.Drawing.Size(960, 654);
+            this.panelDesktopPane.TabIndex = 1;
+            // 
+            // btnDB
+            // 
+            this.btnDB.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDB.Location = new System.Drawing.Point(1, 41);
+            this.btnDB.Name = "btnDB";
+            this.btnDB.Size = new System.Drawing.Size(159, 82);
+            this.btnDB.TabIndex = 2;
+            this.btnDB.Text = "Trang chủ";
+            this.btnDB.UseVisualStyleBackColor = false;
+            // 
+            // btnTB
+            // 
+            this.btnTB.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnTB.Location = new System.Drawing.Point(1, 129);
+            this.btnTB.Name = "btnTB";
+            this.btnTB.Size = new System.Drawing.Size(159, 82);
+            this.btnTB.TabIndex = 3;
+            this.btnTB.Text = "Thiết bị";
+            this.btnTB.UseVisualStyleBackColor = false;
+            // 
+            // btnQN
+            // 
+            this.btnQN.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnQN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnQN.Location = new System.Drawing.Point(1, 217);
+            this.btnQN.Name = "btnQN";
+            this.btnQN.Size = new System.Drawing.Size(159, 82);
+            this.btnQN.TabIndex = 4;
+            this.btnQN.Text = "Quân nhân";
+            this.btnQN.UseVisualStyleBackColor = false;
+            // 
+            // btnDV
+            // 
+            this.btnDV.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDV.Location = new System.Drawing.Point(1, 305);
+            this.btnDV.Name = "btnDV";
+            this.btnDV.Size = new System.Drawing.Size(159, 82);
+            this.btnDV.TabIndex = 5;
+            this.btnDV.Text = "Đơn vị";
+            this.btnDV.UseVisualStyleBackColor = false;
+            // 
+            // btnTBQN
+            // 
+            this.btnTBQN.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnTBQN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTBQN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnTBQN.Location = new System.Drawing.Point(1, 393);
+            this.btnTBQN.Name = "btnTBQN";
+            this.btnTBQN.Size = new System.Drawing.Size(159, 82);
+            this.btnTBQN.TabIndex = 6;
+            this.btnTBQN.Text = "Quân nhân - Thiết bị";
+            this.btnTBQN.UseVisualStyleBackColor = false;
+            // 
+            // btnTBDV
+            // 
+            this.btnTBDV.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnTBDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTBDV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnTBDV.Location = new System.Drawing.Point(1, 481);
+            this.btnTBDV.Name = "btnTBDV";
+            this.btnTBDV.Size = new System.Drawing.Size(159, 82);
+            this.btnTBDV.TabIndex = 7;
+            this.btnTBDV.Text = "Đơn vị - Thiết bị";
+            this.btnTBDV.UseVisualStyleBackColor = false;
+            // 
+            // btnLTB
+            // 
+            this.btnLTB.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnLTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLTB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnLTB.Location = new System.Drawing.Point(1, 569);
+            this.btnLTB.Name = "btnLTB";
+            this.btnLTB.Size = new System.Drawing.Size(159, 82);
+            this.btnLTB.TabIndex = 8;
+            this.btnLTB.Text = "Loại thiết bị";
+            this.btnLTB.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(122, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(38, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Exit";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AccToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1128, 24);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // AccToolStripMenuItem
             // 
@@ -48,39 +171,34 @@ namespace QLTTBCNTT_WinForm
             // accMgrToolStripMenuItem
             // 
             this.accMgrToolStripMenuItem.Name = "accMgrToolStripMenuItem";
-            this.accMgrToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.accMgrToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.accMgrToolStripMenuItem.Text = "Quản lý tài khoản";
             this.accMgrToolStripMenuItem.Visible = false;
-            this.accMgrToolStripMenuItem.Click += new System.EventHandler(this.accMgrToolStripMenuItem_Click);
             // 
-            // menuStrip1
+            // exitToolStripMenuItem
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AccToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1128, 24);
-            this.menuStrip1.TabIndex = 10;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // panelDesktopPane
-            // 
-            this.panelDesktopPane.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelDesktopPane.Location = new System.Drawing.Point(166, 7);
-            this.panelDesktopPane.Name = "panelDesktopPane";
-            this.panelDesktopPane.Size = new System.Drawing.Size(960, 654);
-            this.panelDesktopPane.TabIndex = 1;
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 660);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnLTB);
+            this.Controls.Add(this.btnDB);
+            this.Controls.Add(this.btnTBDV);
+            this.Controls.Add(this.btnTB);
+            this.Controls.Add(this.btnTBQN);
+            this.Controls.Add(this.btnQN);
+            this.Controls.Add(this.btnDV);
             this.Controls.Add(this.panelDesktopPane);
             this.Controls.Add(this.menuStrip1);
             this.Name = "FormMain";
             this.Text = "Quản lý Trang thiết bị CNTT";
-            this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -89,10 +207,19 @@ namespace QLTTBCNTT_WinForm
         }
 
         #endregion
+        private System.Windows.Forms.Panel panelDesktopPane;
+        private Button btnDB;
+        private Button btnTB;
+        private Button btnQN;
+        private Button btnDV;
+        private Button btnTBQN;
+        private Button btnTBDV;
+        private Button btnLTB;
+        private Button button1;
+        private MenuStrip menuStrip1;
         private ToolStripMenuItem AccToolStripMenuItem;
         private ToolStripMenuItem accMgrToolStripMenuItem;
-        private MenuStrip menuStrip1;
-        private Panel panelDesktopPane;
+        private ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

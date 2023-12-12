@@ -40,20 +40,20 @@ namespace QLTTBCNTT_WinForm
             if (i == 2)
             {
                 accMgrToolStripMenuItem.Visible = false;
+                btnTB.Visible = false;
+                btnQN.Visible = false;
+                btnDV.Visible = false;
+                btnTBQN.Visible = false;
+                btnTBDV.Visible = false;
+                btnLTB.Visible = false;
             }
             if (i == 3)
             {
                 accMgrToolStripMenuItem.Visible = false;
+                btnDB.Visible = false;
             }
 
         }
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        
-        
 
         #region bổ trợ
         private void ActivateButton(object btnSender)
@@ -89,9 +89,18 @@ namespace QLTTBCNTT_WinForm
         }
         #endregion
 
-        private void accMgrToolStripMenuItem_Click(object sender, EventArgs e)
+        
+
+        private void button1_Click(object sender, EventArgs e)
         {
+            this.Close();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
     }
 }

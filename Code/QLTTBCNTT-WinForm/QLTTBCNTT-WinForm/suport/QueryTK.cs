@@ -18,7 +18,6 @@ namespace QLTTBCNTT_WinForm.suport
         private SqlCommand sqlCMD;
 
         public QueryTK() { }
-        
 
         public DataTable FindByUser(string userLogin)
         {
