@@ -348,3 +348,16 @@ D:\VB2\3. Ki.III\8.TTN-77CH\BT-TT_Team-77CH-QLTTBCNTT\Code\QLTTBCNTT-WinForm\QLT
 D:\VB2\3. Ki.III\8.TTN-77CH\BT-TT_Team-77CH-QLTTBCNTT\Code\QLTTBCNTT-WinForm\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT-WinForm.csproj.CopyComplete
 D:\VB2\3. Ki.III\8.TTN-77CH\BT-TT_Team-77CH-QLTTBCNTT\Code\QLTTBCNTT-WinForm\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT-WinForm.exe
 D:\VB2\3. Ki.III\8.TTN-77CH\BT-TT_Team-77CH-QLTTBCNTT\Code\QLTTBCNTT-WinForm\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT-WinForm.pdb
+D:\VB2\3. Ki.III\9. TTCN-77C\QLTTBCNTT-WinForm - base - Copy\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT-WinForm.csproj.AssemblyReference.cache
+D:\VB2\3. Ki.III\9. TTCN-77C\QLTTBCNTT-WinForm - base - Copy\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT_WinForm.FormAccMgr.resources
+D:\VB2\3. Ki.III\9. TTCN-77C\QLTTBCNTT-WinForm - base - Copy\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT_WinForm.FormDMLTB.resources
+D:\VB2\3. Ki.III\9. TTCN-77C\QLTTBCNTT-WinForm - base - Copy\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT_WinForm.FormDV.resources
+D:\VB2\3. Ki.III\9. TTCN-77C\QLTTBCNTT-WinForm - base - Copy\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT_WinForm.FormLogin.resources
+D:\VB2\3. Ki.III\9. TTCN-77C\QLTTBCNTT-WinForm - base - Copy\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT_WinForm.FormMain.resources
+D:\VB2\3. Ki.III\9. TTCN-77C\QLTTBCNTT-WinForm - base - Copy\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT_WinForm.FormQN.resources
+D:\VB2\3. Ki.III\9. TTCN-77C\QLTTBCNTT-WinForm - base - Copy\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT_WinForm.Frm_ChangePass.resources
+D:\VB2\3. Ki.III\9. TTCN-77C\QLTTBCNTT-WinForm - base - Copy\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT_WinForm.Properties.Resources.resources
+D:\VB2\3. Ki.III\9. TTCN-77C\QLTTBCNTT-WinForm - base - Copy\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT-WinForm.csproj.GenerateResource.cache
+D:\VB2\3. Ki.III\9. TTCN-77C\QLTTBCNTT-WinForm - base - Copy\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT-WinForm.csproj.CoreCompileInputs.cache
+D:\VB2\3. Ki.III\9. TTCN-77C\QLTTBCNTT-WinForm - base - Copy\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT-WinForm.exe
+D:\VB2\3. Ki.III\9. TTCN-77C\QLTTBCNTT-WinForm - base - Copy\QLTTBCNTT-WinForm\obj\Debug\QLTTBCNTT-WinForm.pdb

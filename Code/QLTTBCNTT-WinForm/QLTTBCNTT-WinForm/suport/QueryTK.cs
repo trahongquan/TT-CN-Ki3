@@ -19,7 +19,7 @@ namespace QLTTBCNTT_WinForm.suport
 
         public QueryTK() { }
         
-	public DataTable getTableAccount()
+        public DataTable getTableAccount()
         {
             DataTable accountTab = new DataTable();
             string query = "select * from AccLogin WHERE Active = 1";
@@ -55,7 +55,7 @@ namespace QLTTBCNTT_WinForm.suport
             }
             return DeletedAccTab;
         }
-        
+
         public DataTable FindByUser(string userLogin)
         {
             DataTable accountTab = new DataTable();
