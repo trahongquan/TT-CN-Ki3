@@ -88,21 +88,6 @@
     <Compile Include="Form\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\ModelTBDV\DM_DonviDV.cs" />
-    <Compile Include="Model\ModelTBDV\DM_ThietBiDV.cs" />
-    <Compile Include="Model\ModelTBDV\ModelTBDV.cs" />
-    <Compile Include="Model\ModelTBDV\TBDVReport.cs" />
-    <Compile Include="Model\ModelTBDV\TB_Donvi.cs" />
-    <Compile Include="Model\ModelTBQN\DM_QuanNhan.cs" />
-    <Compile Include="Model\ModelTBQN\DM_ThietBiQN.cs" />
-    <Compile Include="Model\ModelTBQN\ModelTBQN.cs" />
-    <Compile Include="Model\ModelTBQN\TB_QN.cs" />
-    <Compile Include="Model\ModelTB\DM_Donvi.cs" />
-    <Compile Include="Model\ModelTB\DM_LoaiThietBi.cs" />
-    <Compile Include="Model\ModelTB\DM_QuanNhan.cs" />
-    <Compile Include="Model\ModelTB\DM_ThietBi.cs" />
-    <Compile Include="Model\ModelTB\ModelTB.cs" />
-    <Compile Include="Model\ModelTB\ThietBiReport.cs" />
     <Compile Include="Object\Account.cs" />
     <Compile Include="Object\DMLoaiTB.cs" />
     <Compile Include="Object\Thietbi.cs" />
@@ -118,13 +103,6 @@
       <DependentUpon>QLTTBCNTTDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="suport\ConnectionString.cs" />
-    <Compile Include="suport\QueryDashBoard.cs" />
-    <Compile Include="suport\QueryDonvi.cs" />
-    <Compile Include="suport\QueryLoaiTB.cs" />
-    <Compile Include="suport\QueryQuannhan.cs" />
-    <Compile Include="suport\QueryTB.cs" />
-    <Compile Include="suport\QueryTBDonvi.cs" />
-    <Compile Include="suport\QueryTBQN.cs" />
     <Compile Include="suport\QueryTK.cs" />
     <EmbeddedResource Include="Form\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
