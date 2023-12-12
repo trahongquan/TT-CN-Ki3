@@ -182,7 +182,7 @@ namespace QLTTBCNTT_WinForm
             // accMgrToolStripMenuItem
             // 
             this.accMgrToolStripMenuItem.Name = "accMgrToolStripMenuItem";
-            this.accMgrToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.accMgrToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.accMgrToolStripMenuItem.Text = "Quản lý tài khoản";
             this.accMgrToolStripMenuItem.Visible = false;
             this.accMgrToolStripMenuItem.Click += new System.EventHandler(this.accMgrToolStripMenuItem_Click);
@@ -190,14 +190,14 @@ namespace QLTTBCNTT_WinForm
             // changePassToolStripMenuItem
             // 
             this.changePassToolStripMenuItem.Name = "changePassToolStripMenuItem";
-            this.changePassToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.changePassToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.changePassToolStripMenuItem.Text = "Đổi mật khẩu";
             this.changePassToolStripMenuItem.Click += new System.EventHandler(this.changePassToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logoutToolStripMenuItem.Text = "Đăng xuất";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -225,6 +225,7 @@ namespace QLTTBCNTT_WinForm
             this.Controls.Add(this.menuStrip1);
             this.Name = "FormMain";
             this.Text = "Quản lý Trang thiết bị CNTT";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

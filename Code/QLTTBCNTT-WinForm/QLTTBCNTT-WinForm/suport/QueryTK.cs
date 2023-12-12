@@ -18,7 +18,7 @@ namespace QLTTBCNTT_WinForm.suport
         private SqlCommand sqlCMD;
 
         public QueryTK() { }
-
+        
         public DataTable FindByUser(string userLogin)
         {
             DataTable accountTab = new DataTable();
@@ -42,6 +42,40 @@ namespace QLTTBCNTT_WinForm.suport
 
             return accountTab;
         }
+
+        public void Insert(Account user)
+        {
+            SqlConnection sqlConnection = ConnectionString.getConnection();
+            string query = "Insert into AccLogin values (@IDQuannhan, @UserLogin, @PassLogin, 1, @KindOfAcc, @TenQN, @CMTQD)";
+
+            try
+            {
+                sqlConnection.Open();
+
+                sqlCMD = new SqlCommand(query, sqlConnection);
+
+                sqlCMD.Parameters.Add("@IDQuannhan", SqlDbType.Int).Value = user.IDQuannhan1;
+                sqlCMD.Parameters.Add("@UserLogin", SqlDbType.NVarChar).Value = user.UserLogin1;
+                sqlCMD.Parameters.Add("@PassLogin", SqlDbType.NVarChar).Value = user.PassLogin1;
+                sqlCMD.Parameters.Add("@KindOfAcc", SqlDbType.Int).Value = user.KindOfAcc1;
+                sqlCMD.Parameters.Add("@TenQN", SqlDbType.NVarChar).Value = user.TenQN1;
+                sqlCMD.Parameters.Add("@CMTQD", SqlDbType.NVarChar).Value = user.CMTQD1;
+
+
+                sqlCMD.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
+        
 
         public bool isTruePassword(string user, string password)
         {
