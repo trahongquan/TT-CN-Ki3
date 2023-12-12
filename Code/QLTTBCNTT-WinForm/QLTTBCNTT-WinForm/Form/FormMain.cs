@@ -99,44 +99,30 @@ namespace QLTTBCNTT_WinForm
         #region button header
         private void btnChildFormTB_Click(object sender, EventArgs e)
         {
-            FormTB FormTB = new FormTB();
-            OpenChildForm(FormTB, sender);
         }
 
         private void btnChildFormQN_Click(object sender, EventArgs e)
         {
-            FormQN FormQN = new FormQN();
-            OpenChildForm(FormQN, sender);
         }
 
         private void btnChildFormTBDV_Click(object sender, EventArgs e)
         {
-            FormTBDV FormTBDV = new FormTBDV();
-            OpenChildForm(FormTBDV, sender);
         }
 
         private void btnChildFormDMTB_Click(object sender, EventArgs e)
         {
-            FormDMLTB FormDMLTB = new FormDMLTB();
-            OpenChildForm(FormDMLTB, sender);
         }
 
         private void btnChildFormDV_Click(object sender, EventArgs e)
         {
-            FormDV FormDV = new FormDV();
-            OpenChildForm(FormDV, sender);
         }
 
         private void btnChildFormTBQN_Click(object sender, EventArgs e)
         {
-            FormTBQN FormTBQN = new FormTBQN();
-            OpenChildForm(FormTBQN, sender);
         }
 
         private void Dashboard_Click(object sender, EventArgs e)
         {
-            Dashboard DB = new Dashboard();
-            OpenChildForm(DB, sender);
         }
         #endregion
 
@@ -165,10 +151,6 @@ namespace QLTTBCNTT_WinForm
 
         private void changePassToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_ChangePass frm = new Frm_ChangePass(user);
-            //this.Hide();
-            frm.ShowDialog();
-            this.Show();
         }
     }
 }
