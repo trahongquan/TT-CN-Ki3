@@ -19,6 +19,42 @@ namespace QLTTBCNTT_WinForm.suport
 
         public QueryTK() { }
         
+	public DataTable getTableAccount()
+        {
+            DataTable accountTab = new DataTable();
+            string query = "select * from AccLogin WHERE Active = 1";
+
+            try
+            {
+                using (SqlConnection sqlConnection = ConnectionString.getConnection())
+                {
+                    sqlConnection.Open();
+                    dataAdapter = new SqlDataAdapter(query, sqlConnection);
+                    dataAdapter.Fill(accountTab);
+                    sqlConnection.Close();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi kết nối đến Cơ sở dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return accountTab;
+        }
+
+        public DataTable getTabDeletedAcc()
+        {
+            DataTable DeletedAccTab = new DataTable();
+            string query = "select * from AccLogin WHERE Active = 0";
+            using (SqlConnection sqlConnection = ConnectionString.getConnection())
+            {
+                sqlConnection.Open();
+                dataAdapter = new SqlDataAdapter(query, sqlConnection);
+                dataAdapter.Fill(DeletedAccTab);
+                sqlConnection.Close();
+            }
+            return DeletedAccTab;
+        }
         
         public DataTable FindByUser(string userLogin)
         {

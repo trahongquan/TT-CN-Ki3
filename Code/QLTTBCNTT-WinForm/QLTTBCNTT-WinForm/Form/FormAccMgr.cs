@@ -154,11 +154,27 @@ namespace QLTTBCNTT_WinForm
             Display() ;
         }
 
+        private void listDelAccToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dtgvAcc.DataSource = SQL.getTabDeletedAcc();
+            thêmToolStripMenuItem.Enabled = false;
+            xóaToolStripMenuItem.Enabled = false;
+            sửaToolStripMenuItem.Enabled = false;
+        }
 
+        private void listAccActiveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dtgvAcc.DataSource = SQL.getTableAccount();
+            thêmToolStripMenuItem.Enabled = true;
+            xóaToolStripMenuItem.Enabled= true;
+            sửaToolStripMenuItem.Enabled = true;
+        }
 
         private void cbbQN_TextChanged(object sender, EventArgs e)
         {
             labelCMTQD.Text = "Số CMTQĐ: " + new QueryQuannhan().FindCMTQDbyidQN(int.Parse(cbbQN.SelectedValue.ToString()));
         }
+
+
     }
 }
