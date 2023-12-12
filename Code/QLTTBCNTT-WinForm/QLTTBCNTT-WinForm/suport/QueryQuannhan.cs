@@ -99,6 +99,32 @@ public void Modify(Quannhan Quannhan, int IdQuannhan) // sua theo TT
     }
 }
 
+public void Delete(int IdQuannhan)    // xoa theo ma
+{
+    SqlConnection sqlConnection = ConnectionString.getConnection();
+    string query = "Delete DM_QuanNhan Where IdQuannhan = @IdQuannhan";
+
+    try
+    {
+        sqlConnection.Open();
+
+        sqlCMD = new SqlCommand(query, sqlConnection);
+        sqlCMD.Parameters.Add("@IdQuannhan", SqlDbType.Int).Value = IdQuannhan;
+        sqlCMD.ExecuteNonQuery();
+
+
+    }
+    catch (Exception ex)
+    {
+        throw ex;
+    }
+    finally
+    {
+        sqlConnection.Close();
+    }
+}
+
+
         #endregion
 
         

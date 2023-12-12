@@ -73,6 +73,32 @@ private void ModifyQN_Click(object sender, EventArgs e)
     }
 }
 
+private void DelQN_Click(object sender, EventArgs e)
+{
+    if (dtgvQN.SelectedRows.Count == 0)
+    {
+        MessageBox.Show("Chưa chọn dòng");
+        return;
+    }
+    DialogResult dlr = new DialogResult();
+
+    dlr = (DialogResult)MessageBox.Show("Bạn có muốn xóa?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+    if (dlr.Equals(DialogResult.No))
+    {
+        return;
+    }
+    try
+    {
+        QueryQN.Delete(int.Parse(dtgvQN.SelectedRows[0].Cells[0].Value.ToString()));
+        Reload();
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show(ex.Message);
+    }
+}
+
 	#endregion
 
         #region Bổ trợ
