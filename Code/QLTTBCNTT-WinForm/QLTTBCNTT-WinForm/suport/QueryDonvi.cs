@@ -42,7 +42,8 @@ namespace QLTTBCNTT_WinForm.suport
 
             return bangXM;
         }
-        public string getDonvi(string idDV)
+        
+	public string getDonvi(string idDV)
         {
             DataTable bangXM = new DataTable();
             string query = "select * from DM_Donvi where idDonvi = '"+idDV+"'";// * se lay tat ca cac cot
@@ -89,6 +90,7 @@ namespace QLTTBCNTT_WinForm.suport
                 sqlConnection.Close();
             }
         }
+
         public void Modify(Donvi Donvi, int donviID) // sua theo TT
         {
             SqlConnection sqlConnection = ConnectionString.getConnection();
@@ -142,6 +144,7 @@ namespace QLTTBCNTT_WinForm.suport
                 sqlConnection.Close();
             }
         }
+
         #endregion
 
     }
