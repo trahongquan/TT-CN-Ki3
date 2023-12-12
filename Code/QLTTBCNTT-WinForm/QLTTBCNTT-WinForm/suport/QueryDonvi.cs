@@ -120,6 +120,31 @@ namespace QLTTBCNTT_WinForm.suport
             }
         }
 
+        public void Delete(int donviID)    // xoa theo ma
+        {
+            SqlConnection sqlConnection = ConnectionString.getConnection();
+            string query = "Delete DM_Donvi Where IdDonvi = @donviID";
+
+            try
+            {
+                sqlConnection.Open();
+
+                sqlCMD = new SqlCommand(query, sqlConnection);
+                sqlCMD.Parameters.Add("@donviID", SqlDbType.Char).Value = donviID;
+                sqlCMD.ExecuteNonQuery();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
         #endregion
 
     }
