@@ -99,6 +99,8 @@ namespace QLTTBCNTT_WinForm
         #region button header
         private void btnChildFormTB_Click(object sender, EventArgs e)
         {
+            FormTB FormTB = new FormTB();
+            OpenChildForm(FormTB, sender);
         }
 
         private void btnChildFormQN_Click(object sender, EventArgs e)

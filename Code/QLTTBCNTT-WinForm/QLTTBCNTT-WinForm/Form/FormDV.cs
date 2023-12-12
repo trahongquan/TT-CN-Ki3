@@ -30,8 +30,7 @@ namespace QLTTBCNTT_WinForm
         }
 
 
-	#region Button Funcion
-	
+        #region Button Funcion
         private void AddDV_Click(object sender, EventArgs e)
         {
             if (Input())
@@ -41,7 +40,6 @@ namespace QLTTBCNTT_WinForm
                 dtgvDV.Refresh();
             }
         }
-
         private void ModifyDV_Click(object sender, EventArgs e)
         {
             if (dtgvDV.SelectedRows.Count == 0)
@@ -96,8 +94,7 @@ namespace QLTTBCNTT_WinForm
             }
         }
 
-	#endregion
-
+        #endregion
 
         #region Bổ trợ
 
@@ -132,8 +129,7 @@ namespace QLTTBCNTT_WinForm
                 MessageBox.Show(ex.Message);
             }
         }
-
-	private void Display()
+        private void Display()
         {
             var DV = dtgvDV.SelectedRows[0];
             cbbDoi.Text = DV.Cells[1].Value.ToString();

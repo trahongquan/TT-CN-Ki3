@@ -16,27 +16,21 @@ namespace QLTTBCNTT_WinForm
     public partial class FormDMLTB : Form
     {
         SqlDataAdapter dataAdapter;
-        public DataTable getTableAccount()
+        public DataTable getDSLTB()
         {
-            DataTable DMLTB = new DataTable();
+            DataTable bangXM = new DataTable();
+
             string query = "select * from DM_LoaiThietBi";
-
-            try
+            using (SqlConnection sqlConnection = ConnectionString.getConnection())
             {
-                using (SqlConnection sqlConnection = ConnectionString.getConnection())
-                {
-                    sqlConnection.Open();
-                    dataAdapter = new SqlDataAdapter(query, sqlConnection);
-                    dataAdapter.Fill(DMLTB);
-                    sqlConnection.Close();
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi kết nối đến Cơ sở dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                sqlConnection.Open();
 
-            return DMLTB;
+                dataAdapter = new SqlDataAdapter(query, sqlConnection); //tao 1 ket noi CSDL moi
+
+                dataAdapter.Fill(bangXM);   // dien du lieu vao bang
+                sqlConnection.Close();
+            }
+            return bangXM;
         }
         public FormDMLTB()
         {
@@ -46,7 +40,7 @@ namespace QLTTBCNTT_WinForm
 
         private void FormDMLTB_Load(object sender, EventArgs e)
         {
-            dtgvDMLTB.DataSource = getTableAccount();
+            dtgvDMLTB.DataSource = getDSLTB();
         }
     }
 }
