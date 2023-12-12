@@ -128,6 +128,56 @@ public void Delete(int IdQuannhan)    // xoa theo ma
         #endregion
 
         
+#region query đơn vị theo id
+public string getDV_Quannhan(string idDonvi)
+{
+    DataSet bangDV = new DataSet();
+    string query = "select Doi, TieuDoan, LuDoan from DM_Donvi " +
+                    "where IdDonvi = " + idDonvi;
+    try
+    {
+        using (SqlConnection sqlConnection = ConnectionString.getConnection())
+        {
+            sqlConnection.Open();
+            dataAdapter = new SqlDataAdapter(query, sqlConnection); //tao 1 ket noi CSDL moi
+            dataAdapter.Fill(bangDV);   // dien du lieu vao bang
+            sqlConnection.Close();
+        }
+    }
+    catch
+    {
+        MessageBox.Show("Lỗi kết nối đến Cơ sở dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+    }
+    string DV;
+    DV = bangDV.Tables[0].Rows[0][0].ToString() + ", " + bangDV.Tables[0].Rows[0][1].ToString() + ", " + bangDV.Tables[0].Rows[0][2].ToString();
+    return DV;
+}
+
+public string FindCMTQDbyidQN(int idQN)
+{
+    DataTable bangXM = new DataTable();
+    string CMTQD = "";
+    string query = "select CMTQD from DM_QuanNhan where IDQuannhan = '" + idQN + "'";// * se lay tat ca cac cot
+    try
+    {
+        using (SqlConnection sqlConnection = ConnectionString.getConnection())
+        {
+            sqlConnection.Open();
+            dataAdapter = new SqlDataAdapter(query, sqlConnection); //tao 1 ket noi CSDL moi
+            dataAdapter.Fill(bangXM);   // dien du lieu vao bang
+            sqlConnection.Close();
+            CMTQD = bangXM.Rows[0][0].ToString();
+        }
+    }
+    catch
+    {
+        MessageBox.Show("Lỗi kết nối đến Cơ sở dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+    }
+    return CMTQD;
+}
+#endregion
 
     }
 }
