@@ -43,7 +43,33 @@ namespace QLTTBCNTT_WinForm.suport
             return accountTab;
         }
 
-        public void Insert(Account user)
+        public bool isTruePassword(string user, string password)
+        {
+            try
+            {
+                SqlConnection adminCnt = ConnectionString.getConnection();
+                adminCnt.Open();
+
+                string query = "select Active from AccLogin WHERE UserLogin = '" + user + "'and PassLogin = '" + password + "' and Active = 1";
+
+                SqlCommand cmd = new SqlCommand(query, adminCnt);
+
+                SqlDataReader data = cmd.ExecuteReader();
+
+                bool b = data.Read();
+               
+
+                adminCnt.Close();
+
+                return b;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi kết nối đến Cơ sở dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw ex;
+            }
+        }
+	public void Insert(Account user)
         {
             SqlConnection sqlConnection = ConnectionString.getConnection();
             string query = "Insert into AccLogin values (@IDQuannhan, @UserLogin, @PassLogin, 1, @KindOfAcc, @TenQN, @CMTQD)";
@@ -75,32 +101,32 @@ namespace QLTTBCNTT_WinForm.suport
             }
         }
 
-        
-
-        public bool isTruePassword(string user, string password)
+        public void ModifyInfo(string UserLogin, string TenQN, string CMTQD, string KindOfAcc, string ID)
         {
+            SqlConnection sqlConnection = ConnectionString.getConnection();
+            string query = "Update AccLogin set UserLogin = @UserLogin, TenQN = @TenQN, CMTQD = @CMTQD, KindOfAcc = @KindOfAcc WHERE idAcc = @ID";
+
             try
             {
-                SqlConnection adminCnt = ConnectionString.getConnection();
-                adminCnt.Open();
+                sqlConnection.Open();
 
-                string query = "select Active from AccLogin WHERE UserLogin = '" + user + "'and PassLogin = '" + password + "' and Active = 1";
+                sqlCMD = new SqlCommand(query, sqlConnection);
 
-                SqlCommand cmd = new SqlCommand(query, adminCnt);
+                sqlCMD.Parameters.Add("@UserLogin", SqlDbType.NChar).Value = UserLogin;
+                sqlCMD.Parameters.Add("@TenQN", SqlDbType.NChar).Value = TenQN;
+                sqlCMD.Parameters.Add("@CMTQD", SqlDbType.NChar).Value = CMTQD;
+                sqlCMD.Parameters.Add("@KindOfAcc", SqlDbType.NChar).Value = KindOfAcc;
+                sqlCMD.Parameters.Add("@ID", SqlDbType.NChar).Value = ID;
 
-                SqlDataReader data = cmd.ExecuteReader();
-
-                bool b = data.Read();
-               
-
-                adminCnt.Close();
-
-                return b;
+                sqlCMD.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi kết nối đến Cơ sở dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw ex;
+            }
+            finally
+            {
+                sqlConnection.Close();
             }
         }
 

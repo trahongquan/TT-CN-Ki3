@@ -102,6 +102,26 @@ namespace QLTTBCNTT_WinForm
             }           
         }
 
+	private void sửaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dtgvAcc.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    SQL.ModifyInfo(txtTK.Text, cbbQN.Text, labelCMTQD.Text, cbbKindOfAcc.Text, dtgvAcc.SelectedRows[0].Cells[0].Value.ToString());
+                    dtgvAcc.DataSource = SQL.getTableAccount();
+                    MessageBox.Show("Thành công");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Thất bại");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn dòng");
+            }
+        }
         
         #endregion
         private void txtTK_TextChanged(object sender, EventArgs e)
@@ -113,7 +133,10 @@ namespace QLTTBCNTT_WinForm
         {
             Display() ;
         }
-
+	private void cbbQN_TextChanged(object sender, EventArgs e)
+        {
+            labelCMTQD.Text = "Số CMTQĐ: " + new QueryQuannhan().FindCMTQDbyidQN(int.Parse(cbbQN.SelectedValue.ToString()));
+        }
         
     }
 }
