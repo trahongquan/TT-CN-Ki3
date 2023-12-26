@@ -54,10 +54,10 @@ jobs:
 
     env:
       Solution_Name: QLTTBCNTT-WinForm.sln
-      Test_Project_Path: code/QLTTBCNTT-WinForm.Tests
+      #Test_Project_Path: code/QLTTBCNTT-WinForm.Tests
       Wap_Project_Directory: code/QLTTBCNTT-WinForm/QLTTBCNTT-WinForm
       Wap_Project_Path: code/QLTTBCNTT-WinForm/QLTTBCNTT-WinForm/QLTTBCNTT-WinForm.csproj
-      DOTNET_ROOT: C:\Program Files\dotnet
+      #DOTNET_ROOT: C:\Program Files\dotnet
 
     steps:
     - name: Checkout
