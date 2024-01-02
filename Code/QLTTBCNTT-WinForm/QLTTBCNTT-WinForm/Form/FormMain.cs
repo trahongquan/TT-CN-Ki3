@@ -131,6 +131,8 @@ namespace QLTTBCNTT_WinForm
 
         private void Dashboard_Click(object sender, EventArgs e)
         {
+            Dashboard DB = new Dashboard();
+            OpenChildForm(DB, sender);
         }
         #endregion
 
