@@ -35,6 +35,102 @@ namespace QLTTBCNTT_WinForm
             dtgvTBQN.Columns[4].HeaderText = "Ngày trả biên chế";
 
         }
+        #region Button Funcion
+        private void AddTBQN_Click(object sender, EventArgs e)
+        {
+            if (CheckIDTB_TBDV())
+            {
+                if (Input())
+                {
+                    QueryTBQN.Insert(GetTBQN());
+                    Reload();
+                    dtgvTBQN.Refresh();
+                }
+            }
+            else { return; }
+        }
+        private void ModifyTBQN_Click(object sender, EventArgs e)
+        {
+            if (dtgvTBQN.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Chưa chọn dòng");
+                return;
+            }
+
+            DialogResult dlr = new DialogResult();
+
+            dlr = (DialogResult)MessageBox.Show("Sửa đổi thông tin?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dlr.Equals(DialogResult.No))
+            {
+                return;
+            }
+
+            try
+            {
+                QueryTBQN.Modify(GetTBQN(), int.Parse(dtgvTBQN.SelectedRows[0].Cells[0].Value.ToString()));
+                Reload();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DelTBQN_Click(object sender, EventArgs e)
+        {
+            if (dtgvTBQN.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Chưa chọn dòng");
+                return;
+            }
+            DialogResult dlr = new DialogResult();
+
+            dlr = (DialogResult)MessageBox.Show("Bạn có muốn xóa?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dlr.Equals(DialogResult.No))
+            {
+                return;
+            }
+            try
+            {
+                QueryTBQN.Delete(int.Parse(dtgvTBQN.SelectedRows[0].Cells[0].Value.ToString()));
+                Reload();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #endregion
+
+
+        #region Bổ trợ
+
+        private TBQN GetTBQN()
+        {
+            int idQN = int.Parse(cbbIDQN.SelectedValue.ToString());
+            int idTB = int.Parse(cbbIDTB.SelectedValue.ToString());
+            TBQN TBDV = new TBQN(idQN, idTB, DateBorrow.Value.ToString(), DateReturn.Value.ToString());
+            return TBDV;
+        }
+        private bool Input()
+        {
+            if (cbbIDQN.Text == "" || cbbIDTB.Text == "")
+            {
+                MessageBox.Show("Không được để trống trường đơn vị và thiết bị");
+                return false;
+            }
+            return true;
+        }
+        private void Clear()
+        {
+            //txtQN.Text = "";
+            cbbIDQN.Text = "";
+            //txtTB.Text = "";
+            cbbIDTB.Text = "";
+        }
 
         private void Reload()
         {
@@ -48,13 +144,27 @@ namespace QLTTBCNTT_WinForm
                 MessageBox.Show(ex.Message);
             }
         }
-        private void Clear()
+        private void Display()
         {
-            //txtQN.Text = "";
-            cbbIDQN.Text = "";
-            //txtTB.Text = "";
-            cbbIDTB.Text = "";
+            var TBQN = dtgvTBQN.SelectedRows[0];
+            cbbIDQN.SelectedValue = TBQN.Cells[1].Value;
+            cbbIDTB.SelectedValue = TBQN.Cells[2].Value;
+            if (TBQN.Cells[3].Value.ToString() != "") DateBorrow.Value = Convert.ToDateTime(TBQN.Cells[3].Value.ToString());
+            if (TBQN.Cells[4].Value.ToString() != "") DateReturn.Value = Convert.ToDateTime(TBQN.Cells[4].Value.ToString());
         }
+        private Boolean CheckIDTB_TBDV()
+        {
+            string ds = QueryTBQN.getTBQN_idTB_check(cbbIDTB.Text);
+            if (ds != "")
+            {
+                MessageBox.Show("Thiết bị đã được biên chế hoặc được cho mượn. Xin vui lòng chọn thiết bị khác!");
+                cbbIDTB.Text = "";
+                return false;
+            }
+            else return true;
+        }
+
+        #endregion
 
     }
 }
