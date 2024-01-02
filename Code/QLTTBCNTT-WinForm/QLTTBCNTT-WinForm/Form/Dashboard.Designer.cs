@@ -124,6 +124,7 @@
             this.btnBRG_DB.TabIndex = 7;
             this.btnBRG_DB.Text = "Bảng rút gọn";
             this.btnBRG_DB.UseVisualStyleBackColor = true;
+            this.btnBRG_DB.Click += new System.EventHandler(this.btnBRG_DB_Click);
             // 
             // btnTBQN_DB
             // 
@@ -247,6 +248,7 @@
             this.Name = "Dashboard";
             this.Text = "Trang chủ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDashboard)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
