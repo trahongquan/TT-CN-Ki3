@@ -98,6 +98,7 @@
             this.txtSearchTenTB.Name = "txtSearchTenTB";
             this.txtSearchTenTB.Size = new System.Drawing.Size(142, 20);
             this.txtSearchTenTB.TabIndex = 4;
+            this.txtSearchTenTB.TextChanged += new System.EventHandler(this.txtSearchTenTB_TextChanged);
             // 
             // txtSearchTenQN
             // 
@@ -106,6 +107,7 @@
             this.txtSearchTenQN.Name = "txtSearchTenQN";
             this.txtSearchTenQN.Size = new System.Drawing.Size(142, 20);
             this.txtSearchTenQN.TabIndex = 5;
+            this.txtSearchTenQN.TextChanged += new System.EventHandler(this.txtSearchTenQN_TextChanged);
             // 
             // txtSearchDV
             // 
@@ -114,6 +116,7 @@
             this.txtSearchDV.Name = "txtSearchDV";
             this.txtSearchDV.Size = new System.Drawing.Size(142, 20);
             this.txtSearchDV.TabIndex = 6;
+            this.txtSearchDV.TextChanged += new System.EventHandler(this.txtSearchDV_TextChanged);
             // 
             // btnBRG_DB
             // 
@@ -193,6 +196,7 @@
             this.btnThongke.TabIndex = 13;
             this.btnThongke.Text = "Thống kê";
             this.btnThongke.UseVisualStyleBackColor = true;
+            this.btnThongke.Click += new System.EventHandler(this.btnThongke_Click);
             // 
             // btnReport
             // 
@@ -203,6 +207,7 @@
             this.btnReport.TabIndex = 14;
             this.btnReport.Text = "Báo cáo";
             this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // groupBox1
             // 

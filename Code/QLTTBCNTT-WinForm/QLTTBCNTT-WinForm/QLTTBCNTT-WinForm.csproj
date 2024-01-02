@@ -150,8 +150,6 @@
     <Compile Include="suport\QueryLoaiTB.cs" />
     <Compile Include="suport\QueryQuannhan.cs" />
     <Compile Include="suport\QueryTB.cs" />
-    <Compile Include="suport\QueryTBDonvi.cs" />
-    <Compile Include="suport\QueryTBQN.cs" />
     <Compile Include="suport\QueryTK.cs" />
     <EmbeddedResource Include="Form\FormAccMgr.resx">
       <DependentUpon>FormAccMgr.cs</DependentUpon>

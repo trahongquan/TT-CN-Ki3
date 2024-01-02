@@ -28,13 +28,24 @@ namespace QLTTBCNTT_WinForm
             RB_Doi.Checked = true;
             btnBRG_DB_Click(sender, e);
         }
+        /*private void Reload()
+        {
+            Clear();
+            try
+            {
+                //dtgvDashboard.DataSource = QueryDB.getDS();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }*/
         private void Clear()
         {
             txtSearchTenTB.Text = "";
             txtSearchTenQN.Text = "";
             txtSearchDV.Text = "";
         }
-
         private int Count()
         {
             int count = 0;
@@ -48,9 +59,8 @@ namespace QLTTBCNTT_WinForm
             }
             return count;
         }
-
-
         #endregion
+
         #region nút chức năng
         private void btnBRG_DB_Click(object sender, EventArgs e)
         {
@@ -75,6 +85,51 @@ namespace QLTTBCNTT_WinForm
                             "WHERE TBDV.idThietbi=TB.IdThietBi and TBDV.idDonvi=DV.IdDonvi and TB.idLoaiTB=LTB.IdLoaiTB";
             dtgvDashboard.DataSource = QueryDB.getDS(s);
         }
+
+        private void btnThongke_Click(object sender, EventArgs e)
+        {
+            int CountTK = Count();
+            string TypeSearch = " ";
+            if (txtSearchTenTB.Text != "") TypeSearch += "Thiết bị có tên là";
+            if (txtSearchTenQN.Text != "") TypeSearch += "Quân nhân có tên là";
+            if (txtSearchDV.Text != "" && RB_Doi.Checked) TypeSearch += "Đơn vị Đội có tên là";
+            if (txtSearchDV.Text != "" && RB_TieuDoan.Checked) TypeSearch += "Đơn vị Tiểu đoàn có tên là";
+            if (txtSearchDV.Text != "" && RB_LuDoan.Checked) TypeSearch += "Đơn vị Lữ đoàn có tên là";
+            string stSearch = txtSearchDV.Text + txtSearchTenTB.Text + txtSearchTenQN.Text;
+            MessageBox.Show(CountTK + " " + TypeSearch + " " + stSearch.ToUpper());
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+        }
         #endregion
+
+        #region text changed
+
+        private void txtSearchTenTB_TextChanged(object sender, EventArgs e)
+        {
+            //if(txtSearchTenQN.Text != "") txtSearchTenQN. txtSearchTenQN_TextChanged(sender, e);
+            txtSearchTenQN.Text = "";
+            txtSearchDV.Text = "";
+            dtgvDashboard.DataSource = QueryDB.Search("TenTB",txtSearchTenTB.Text);
+        }
+
+        private void txtSearchTenQN_TextChanged(object sender, EventArgs e)
+        {
+            txtSearchTenTB.Text = "";
+            txtSearchDV.Text = "";
+            dtgvDashboard.DataSource = QueryDB.Search("Ten",txtSearchTenQN.Text);
+        }
+
+        private void txtSearchDV_TextChanged(object sender, EventArgs e)
+        {
+            txtSearchTenQN.Text = "";
+            txtSearchTenTB.Text = "";
+            if (RB_Doi.Checked) dtgvDashboard.DataSource = QueryDB.Search("Doi",txtSearchDV.Text);
+            if(RB_TieuDoan.Checked) dtgvDashboard.DataSource = QueryDB.Search("TieuDoan", txtSearchDV.Text);
+            if(RB_LuDoan.Checked) dtgvDashboard.DataSource = QueryDB.Search("LuDoan", txtSearchDV.Text);
+        }
+        #endregion
+        
     }
 }
