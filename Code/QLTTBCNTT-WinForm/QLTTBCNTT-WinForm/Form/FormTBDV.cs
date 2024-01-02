@@ -46,7 +46,30 @@ namespace QLTTBCNTT_WinForm
         }
         private void ModifyTBDV_Click(object sender, EventArgs e)
         {
+            if (dtgvTBDV.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Chưa chọn dòng");
+                return;
+            }
 
+            DialogResult dlr = new DialogResult();
+
+            dlr = (DialogResult)MessageBox.Show("Sửa đổi thông tin?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dlr.Equals(DialogResult.No))
+            {
+                return;
+            }
+
+            try
+            {
+                QueryTBDV.Modify(GetTBDV(), int.Parse(dtgvTBDV.SelectedRows[0].Cells[0].Value.ToString()));
+                Reload();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void DelTBDV_Click(object sender, EventArgs e)
@@ -56,13 +79,15 @@ namespace QLTTBCNTT_WinForm
 
         #endregion
 
-        
+
 
         private void dtgvTBDV_MouseClick(object sender, MouseEventArgs e)
         {
+            Display();
         }
         private void ccbidDV_TextChanged(object sender, EventArgs e)
         {
+            if (cbbIDDV.Text != "") txtDV.Text = new QueryDonvi().getDonvi(cbbIDDV.Text);
         }
 
         #region Bổ trợ
@@ -128,6 +153,7 @@ namespace QLTTBCNTT_WinForm
             }
         }
         #endregion
+
 
     }
 }
