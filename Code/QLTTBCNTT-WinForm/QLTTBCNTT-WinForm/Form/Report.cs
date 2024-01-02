@@ -26,7 +26,6 @@ namespace QLTTBCNTT_WinForm
         {
             
         }
-
         private void btnReportTB_Click(object sender, EventArgs e)
         {
             ModelTB modelTB = new ModelTB();
@@ -84,8 +83,9 @@ namespace QLTTBCNTT_WinForm
 
             foreach (DM_ThietBi tb in listTB)
             {
-                if (tb.Kho == 1) { 
-                    
+                if (tb.Kho == 1)
+                {
+
                     ThietBiReport tbrp = new ThietBiReport();
                     tbrp.LoaiTB = tb.DM_LoaiThietBi != null ? tb.DM_LoaiThietBi.loai : "Không có thông tin";
                     tbrp.TenTB = tb.TenTB;
@@ -116,7 +116,7 @@ namespace QLTTBCNTT_WinForm
                         tbrp.Donvi = "Chưa biên chế";
                     }
 
-                ListThietBiReports.Add(tbrp);
+                    ListThietBiReports.Add(tbrp);
                 }
             }
 
@@ -158,5 +158,6 @@ namespace QLTTBCNTT_WinForm
             this.reportTB.RefreshReport();
             this.reportTB.RefreshReport();
         }
+
     }
 }

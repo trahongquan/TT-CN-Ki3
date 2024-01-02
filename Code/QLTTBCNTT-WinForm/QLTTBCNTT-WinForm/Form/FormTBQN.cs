@@ -12,48 +12,46 @@ using System.Windows.Forms;
 
 namespace QLTTBCNTT_WinForm
 {
-    public partial class FormTBDV : Form
+    public partial class FormTBQN : Form
     {
-        public FormTBDV()
+        public FormTBQN()
         {
             InitializeComponent();
             this.ControlBox = false;
         }
-        QueryTBDonvi QueryTBDV = new QueryTBDonvi();
+        QueryTBQN QueryTBQN = new QueryTBQN();
 
-        private void FormTBDV_Load(object sender, EventArgs e)
+        private void FormTBQN_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLTTBCNTTDataSet.DM_ThietBi' table. You can move, or remove it, as needed.
             this.dM_ThietBiTableAdapter.Fill(this.qLTTBCNTTDataSet.DM_ThietBi);
-            // TODO: This line of code loads data into the 'qLTTBCNTTDataSet.DM_Donvi' table. You can move, or remove it, as needed.
-            this.dM_DonviTableAdapter.Fill(this.qLTTBCNTTDataSet.DM_Donvi);
+            // TODO: This line of code loads data into the 'qLTTBCNTTDataSet.DM_QuanNhan' table. You can move, or remove it, as needed.
+            this.dM_QuanNhanTableAdapter.Fill(this.qLTTBCNTTDataSet.DM_QuanNhan);
             Reload();
-            dtgvTBDV.Columns[0].HeaderText = "IDTBDV";
-            dtgvTBDV.Columns[1].HeaderText = "ID Đơn vị";
-            dtgvTBDV.Columns[2].HeaderText = "ID Thiết bị";
-            dtgvTBDV.Columns[3].HeaderText = "Ngày biên chế";
-            dtgvTBDV.Columns[4].HeaderText = "Ngày trả biên chế";
-
+            dtgvTBQN.Columns[0].HeaderText = "IDTBQN";
+            dtgvTBQN.Columns[1].HeaderText = "ID Quân nhân";
+            dtgvTBQN.Columns[2].HeaderText = "ID Thiết bị";
+            dtgvTBQN.Columns[3].HeaderText = "Ngày biên chế";
+            dtgvTBQN.Columns[4].HeaderText = "Ngày trả biên chế";
 
         }
-
         #region Button Funcion
-        private void AddTBDV_Click(object sender, EventArgs e)
+        private void AddTBQN_Click(object sender, EventArgs e)
         {
             if (CheckIDTB_TBDV())
             {
                 if (Input())
                 {
-                    QueryTBDV.Insert(GetTBDV());
+                    QueryTBQN.Insert(GetTBQN());
                     Reload();
-                    dtgvTBDV.Refresh();
+                    dtgvTBQN.Refresh();
                 }
             }
             else { return; }
         }
-        private void ModifyTBDV_Click(object sender, EventArgs e)
+        private void ModifyTBQN_Click(object sender, EventArgs e)
         {
-            if (dtgvTBDV.SelectedRows.Count == 0)
+            if (dtgvTBQN.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Chưa chọn dòng");
                 return;
@@ -70,7 +68,7 @@ namespace QLTTBCNTT_WinForm
 
             try
             {
-                QueryTBDV.Modify(GetTBDV(), int.Parse(dtgvTBDV.SelectedRows[0].Cells[0].Value.ToString()));
+                QueryTBQN.Modify(GetTBQN(), int.Parse(dtgvTBQN.SelectedRows[0].Cells[0].Value.ToString()));
                 Reload();
             }
             catch (Exception ex)
@@ -79,9 +77,9 @@ namespace QLTTBCNTT_WinForm
             }
         }
 
-        private void DelTBDV_Click(object sender, EventArgs e)
+        private void DelTBQN_Click(object sender, EventArgs e)
         {
-            if (dtgvTBDV.SelectedRows.Count == 0)
+            if (dtgvTBQN.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Chưa chọn dòng");
                 return;
@@ -96,7 +94,7 @@ namespace QLTTBCNTT_WinForm
             }
             try
             {
-                QueryTBDV.Delete(int.Parse(dtgvTBDV.SelectedRows[0].Cells[0].Value.ToString()));
+                QueryTBQN.Delete(int.Parse(dtgvTBQN.SelectedRows[0].Cells[0].Value.ToString()));
                 Reload();
             }
             catch (Exception ex)
@@ -107,19 +105,19 @@ namespace QLTTBCNTT_WinForm
 
         #endregion
 
+
         #region Bổ trợ
 
-        private TBDonvi GetTBDV()
+        private TBQN GetTBQN()
         {
-            int idDV = int.Parse(cbbIDDV.Text);
+            int idQN = int.Parse(cbbIDQN.SelectedValue.ToString());
             int idTB = int.Parse(cbbIDTB.SelectedValue.ToString());
-            //int idTB = int.Parse(cbbIDTB.Text);
-            TBDonvi TBDV = new TBDonvi(idDV, idTB, DateBorrow.Value.ToString(), DateReturn.Value.ToString());
+            TBQN TBDV = new TBQN(idQN, idTB, DateBorrow.Value.ToString(), DateReturn.Value.ToString());
             return TBDV;
         }
         private bool Input()
         {
-            if (cbbIDDV.Text == "" || cbbIDTB.Text == "")
+            if (cbbIDQN.Text == "" || cbbIDTB.Text == "")
             {
                 MessageBox.Show("Không được để trống trường đơn vị và thiết bị");
                 return false;
@@ -128,9 +126,10 @@ namespace QLTTBCNTT_WinForm
         }
         private void Clear()
         {
-            cbbIDDV.Text = "";
+            //txtQN.Text = "";
+            cbbIDQN.Text = "";
+            //txtTB.Text = "";
             cbbIDTB.Text = "";
-            txtSearchTBDV.Text = "";
         }
 
         private void Reload()
@@ -138,7 +137,7 @@ namespace QLTTBCNTT_WinForm
             Clear();
             try
             {
-                dtgvTBDV.DataSource = QueryTBDV.getDS_TBDonvi();
+                dtgvTBQN.DataSource = QueryTBQN.getDS_TBQN();
             }
             catch (Exception ex)
             {
@@ -147,35 +146,39 @@ namespace QLTTBCNTT_WinForm
         }
         private void Display()
         {
-            var TBDV = dtgvTBDV.SelectedRows[0];
-            cbbIDDV.Text = TBDV.Cells[1].Value.ToString();
-            cbbIDTB.SelectedValue = TBDV.Cells[2].Value;
-            DateBorrow.Value = Convert.ToDateTime(TBDV.Cells[3].Value.ToString());
-            DateReturn.Value = Convert.ToDateTime(TBDV.Cells[4].Value.ToString());
+            var TBQN = dtgvTBQN.SelectedRows[0];
+            cbbIDQN.SelectedValue = TBQN.Cells[1].Value;
+            cbbIDTB.SelectedValue = TBQN.Cells[2].Value;
+            if (TBQN.Cells[3].Value.ToString() != "") DateBorrow.Value = Convert.ToDateTime(TBQN.Cells[3].Value.ToString());
+            if (TBQN.Cells[4].Value.ToString() != "") DateReturn.Value = Convert.ToDateTime(TBQN.Cells[4].Value.ToString());
         }
-
-        private void dtgvTBDV_MouseClick(object sender, MouseEventArgs e)
-        {
-            Display();
-        }
-        private void ccbidDV_TextChanged(object sender, EventArgs e)
-        {
-            if (cbbIDDV.Text != "") txtDV.Text = new QueryDonvi().getDonvi(cbbIDDV.Text);
-        }
-
         private Boolean CheckIDTB_TBDV()
         {
-            string ds = QueryTBDV.getTBDV_idTB_check(cbbIDTB.SelectedValue.ToString()) /*+ new QueryTBQN().getTBQN_idTB_check(cbbIDTB.SelectedValue.ToString())*/;
-            if (ds.Equals(""))
+            string ds = QueryTBQN.getTBQN_idTB_check(cbbIDTB.Text);
+            if (ds != "")
             {
-                MessageBox.Show("Thiết bị hợp lệ, chưa được biên chế hoặc cho mượn");
-                return true;
-            } else {
                 MessageBox.Show("Thiết bị đã được biên chế hoặc được cho mượn. Xin vui lòng chọn thiết bị khác!");
                 cbbIDTB.Text = "";
                 return false;
             }
+            else return true;
         }
+
+        private void dtgvTBQN_MouseClick(object sender, MouseEventArgs e)
+        {
+            Display();
+        }
+        private void ccbidQN_TextChanged(object sender, EventArgs e)
+        {
+            // if (cbbIDQN.Text != "") txtQN.Text = QueryTBQN.getTBQN_idQN(cbbIDQN.Text);
+        }
+
+
+        private void cbbidTB_TextChanged(object sender, EventArgs e)
+        {
+            // if (cbbIDTB.Text != "") txtTB.Text = QueryTBQN.getTBDV_idTB(cbbIDTB.Text);
+        }
+
         #endregion
 
     }

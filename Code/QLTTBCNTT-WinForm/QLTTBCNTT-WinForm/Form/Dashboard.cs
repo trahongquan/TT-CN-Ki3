@@ -101,8 +101,6 @@ namespace QLTTBCNTT_WinForm
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            Report Report = new Report();
-            Report.ShowDialog();
         }
         #endregion
 

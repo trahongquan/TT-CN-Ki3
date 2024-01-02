@@ -42,16 +42,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cbbIDDV = new System.Windows.Forms.ComboBox();
-            this.dMDonviBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLTTBCNTTDataSet = new QLTTBCNTT_WinForm.QLTTBCNTTDataSet();
             this.cbbIDTB = new System.Windows.Forms.ComboBox();
-            this.dMThietBiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtDV = new System.Windows.Forms.TextBox();
+            this.qLTTBCNTTDataSet = new QLTTBCNTT_WinForm.QLTTBCNTTDataSet();
+            this.dMDonviBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dM_DonviTableAdapter = new QLTTBCNTT_WinForm.QLTTBCNTTDataSetTableAdapters.DM_DonviTableAdapter();
+            this.dMThietBiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dM_ThietBiTableAdapter = new QLTTBCNTT_WinForm.QLTTBCNTTDataSetTableAdapters.DM_ThietBiTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTBDV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dMDonviBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLTTBCNTTDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dMDonviBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dMThietBiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +65,7 @@
             this.dtgvTBDV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvTBDV.Size = new System.Drawing.Size(491, 425);
             this.dtgvTBDV.TabIndex = 0;
+            this.dtgvTBDV.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dtgvTBDV_MouseClick);
             // 
             // label1
             // 
@@ -105,6 +106,7 @@
             this.AddTBDV.TabIndex = 4;
             this.AddTBDV.Text = "Thêm";
             this.AddTBDV.UseVisualStyleBackColor = true;
+            this.AddTBDV.Click += new System.EventHandler(this.AddTBDV_Click);
             // 
             // ModifyTBDV
             // 
@@ -115,6 +117,7 @@
             this.ModifyTBDV.TabIndex = 5;
             this.ModifyTBDV.Text = "Sửa";
             this.ModifyTBDV.UseVisualStyleBackColor = true;
+            this.ModifyTBDV.Click += new System.EventHandler(this.ModifyTBDV_Click);
             // 
             // DelTBDV
             // 
@@ -125,6 +128,7 @@
             this.DelTBDV.TabIndex = 0;
             this.DelTBDV.Text = "Xóa";
             this.DelTBDV.UseVisualStyleBackColor = true;
+            this.DelTBDV.Click += new System.EventHandler(this.DelTBDV_Click);
             // 
             // txtSearchTBDV
             // 
@@ -188,16 +192,6 @@
             this.cbbIDDV.ValueMember = "IdDonvi";
             this.cbbIDDV.TextChanged += new System.EventHandler(this.ccbidDV_TextChanged);
             // 
-            // dMDonviBindingSource
-            // 
-            this.dMDonviBindingSource.DataMember = "DM_Donvi";
-            this.dMDonviBindingSource.DataSource = this.qLTTBCNTTDataSet;
-            // 
-            // qLTTBCNTTDataSet
-            // 
-            this.qLTTBCNTTDataSet.DataSetName = "QLTTBCNTTDataSet";
-            this.qLTTBCNTTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // cbbIDTB
             // 
             this.cbbIDTB.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -211,11 +205,6 @@
             this.cbbIDTB.TabIndex = 14;
             this.cbbIDTB.ValueMember = "IdThietBi";
             // 
-            // dMThietBiBindingSource
-            // 
-            this.dMThietBiBindingSource.DataMember = "DM_ThietBi";
-            this.dMThietBiBindingSource.DataSource = this.qLTTBCNTTDataSet;
-            // 
             // txtDV
             // 
             this.txtDV.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -224,9 +213,24 @@
             this.txtDV.Size = new System.Drawing.Size(176, 20);
             this.txtDV.TabIndex = 15;
             // 
+            // qLTTBCNTTDataSet
+            // 
+            this.qLTTBCNTTDataSet.DataSetName = "QLTTBCNTTDataSet";
+            this.qLTTBCNTTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dMDonviBindingSource
+            // 
+            this.dMDonviBindingSource.DataMember = "DM_Donvi";
+            this.dMDonviBindingSource.DataSource = this.qLTTBCNTTDataSet;
+            // 
             // dM_DonviTableAdapter
             // 
             this.dM_DonviTableAdapter.ClearBeforeFill = true;
+            // 
+            // dMThietBiBindingSource
+            // 
+            this.dMThietBiBindingSource.DataMember = "DM_ThietBi";
+            this.dMThietBiBindingSource.DataSource = this.qLTTBCNTTDataSet;
             // 
             // dM_ThietBiTableAdapter
             // 
@@ -254,9 +258,10 @@
             this.Controls.Add(this.dtgvTBDV);
             this.Name = "FormTBDV";
             this.Text = "FormTBDV";
+            this.Load += new System.EventHandler(this.FormTBDV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTBDV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dMDonviBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLTTBCNTTDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dMDonviBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dMThietBiBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
