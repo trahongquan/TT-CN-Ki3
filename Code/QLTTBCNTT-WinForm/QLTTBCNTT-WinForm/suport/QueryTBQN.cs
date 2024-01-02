@@ -119,9 +119,7 @@ namespace QLTTBCNTT_WinForm.suport
                 sqlConnection.Close();
             }
         }
-
         #endregion
-
         #region query TB, QN theo id
         public string getTBDV_idTB(string idTB)
         {
@@ -145,6 +143,30 @@ namespace QLTTBCNTT_WinForm.suport
             }
             string DV;
             DV = bangTB.Tables[0].Rows[0][0].ToString();
+            return DV;
+        }
+        public string getTBQN_idQN(string idQN)
+        {
+            DataSet bangDV = new DataSet();
+            string query = "select Ten from DM_Quannhan " +
+                            "where IDQuannhan = " + idQN;
+            try
+            {
+                using (SqlConnection sqlConnection = ConnectionString.getConnection())
+                {
+                    sqlConnection.Open();
+                    dataAdapter = new SqlDataAdapter(query, sqlConnection); //tao 1 ket noi CSDL moi
+                    dataAdapter.Fill(bangDV);   // dien du lieu vao bang
+                    sqlConnection.Close();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi kết nối đến Cơ sở dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            string DV;
+            DV = bangDV.Tables[0].Rows[0][0].ToString();
             return DV;
         }
 
@@ -172,35 +194,6 @@ namespace QLTTBCNTT_WinForm.suport
                 return kq;
             }
         }
-
-        public string getTBQN_idQN(string idQN)
-        {
-            DataSet bangDV = new DataSet();
-            string query = "select Ten from DM_Quannhan " +
-                            "where IDQuannhan = " + idQN;
-            try
-            {
-                using (SqlConnection sqlConnection = ConnectionString.getConnection())
-                {
-                    sqlConnection.Open();
-                    dataAdapter = new SqlDataAdapter(query, sqlConnection); //tao 1 ket noi CSDL moi
-                    dataAdapter.Fill(bangDV);   // dien du lieu vao bang
-                    sqlConnection.Close();
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi kết nối đến Cơ sở dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            string DV;
-            DV = bangDV.Tables[0].Rows[0][0].ToString();
-            return DV;
-        }
-
-
         #endregion
-
-
     }
 }
