@@ -94,6 +94,18 @@
     <Compile Include="Form\FormDMLTB.Designer.cs">
       <DependentUpon>FormDMLTB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormTBDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormTBDV.Designer.cs">
+      <DependentUpon>FormTBDV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\FormDV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +136,21 @@
     <Compile Include="Form\Frm_ChangePass.Designer.cs">
       <DependentUpon>Frm_ChangePass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ModelTBDV\DM_DonviDV.cs" />
+    <Compile Include="Model\ModelTBDV\DM_ThietBiDV.cs" />
+    <Compile Include="Model\ModelTBDV\ModelTBDV.cs" />
+    <Compile Include="Model\ModelTBDV\TBDVReport.cs" />
+    <Compile Include="Model\ModelTBDV\TB_Donvi.cs" />
+    <Compile Include="Model\ModelTBQN\DM_QuanNhan.cs" />
+    <Compile Include="Model\ModelTBQN\DM_ThietBiQN.cs" />
+    <Compile Include="Model\ModelTBQN\ModelTBQN.cs" />
+    <Compile Include="Model\ModelTBQN\TB_QN.cs" />
+    <Compile Include="Model\ModelTB\DM_Donvi.cs" />
+    <Compile Include="Model\ModelTB\DM_LoaiThietBi.cs" />
+    <Compile Include="Model\ModelTB\DM_QuanNhan.cs" />
+    <Compile Include="Model\ModelTB\DM_ThietBi.cs" />
+    <Compile Include="Model\ModelTB\ModelTB.cs" />
+    <Compile Include="Model\ModelTB\ThietBiReport.cs" />
     <Compile Include="Object\Account.cs" />
     <Compile Include="Object\DMLoaiTB.cs" />
     <Compile Include="Object\Thietbi.cs" />
@@ -138,17 +165,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLTTBCNTTDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Form\Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="suport\ConnectionString.cs" />
+    <Compile Include="suport\QueryDashBoard.cs" />
     <Compile Include="suport\QueryDonvi.cs" />
     <Compile Include="suport\QueryLoaiTB.cs" />
     <Compile Include="suport\QueryQuannhan.cs" />
     <Compile Include="suport\QueryTB.cs" />
+    <Compile Include="suport\QueryTBDonvi.cs" />
     <Compile Include="suport\QueryTK.cs" />
+    <EmbeddedResource Include="Form\ReportRDLC\DsTB.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\FormAccMgr.resx">
       <DependentUpon>FormAccMgr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormDMLTB.resx">
       <DependentUpon>FormDMLTB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormDV.resx">
       <DependentUpon>FormDV.cs</DependentUpon>
@@ -165,9 +206,16 @@
     <EmbeddedResource Include="Form\FormTB.resx">
       <DependentUpon>FormTB.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormTBDV.resx">
+      <DependentUpon>FormTBDV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\Frm_ChangePass.resx">
       <DependentUpon>Frm_ChangePass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ReportRDLC\DsTBDV.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
