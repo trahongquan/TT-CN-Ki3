@@ -164,6 +164,21 @@ namespace QLTTBCNTT_WinForm
             else return true;
         }
 
+        private void dtgvTBQN_MouseClick(object sender, MouseEventArgs e)
+        {
+            Display();
+        }
+        private void ccbidQN_TextChanged(object sender, EventArgs e)
+        {
+            // if (cbbIDQN.Text != "") txtQN.Text = QueryTBQN.getTBQN_idQN(cbbIDQN.Text);
+        }
+
+
+        private void cbbidTB_TextChanged(object sender, EventArgs e)
+        {
+            // if (cbbIDTB.Text != "") txtTB.Text = QueryTBQN.getTBDV_idTB(cbbIDTB.Text);
+        }
+
         #endregion
 
     }
