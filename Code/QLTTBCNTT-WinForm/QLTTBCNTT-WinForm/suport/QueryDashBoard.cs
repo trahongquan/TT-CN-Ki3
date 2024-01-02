@@ -58,5 +58,50 @@ namespace QLTTBCNTT_WinForm.suport
             }
             return bangXM;
         }
+
+        #region Query Bảng rút gọn
+
+
+        public DataTable getDSLTB()
+        {
+            DataTable bangXM = new DataTable();
+
+            string query = "select * from DM_LoaiThietBi";
+            using (SqlConnection sqlConnection = ConnectionString.getConnection())
+            {
+                sqlConnection.Open();
+
+                dataAdapter = new SqlDataAdapter(query, sqlConnection); //tao 1 ket noi CSDL moi
+
+                dataAdapter.Fill(bangXM);   // dien du lieu vao bang
+                sqlConnection.Close();
+            }
+            return bangXM;
+        }
+
+        public DataTable Search(string col, string st)
+        {
+            DataTable bangXM = new DataTable();
+
+            string query = "select TB.TenTB, LTB.loai, QN.Ten, DV.Doi, DV.TieuDoan, DV.LuDoan " +
+                            "From DM_ThietBi As TB, DM_LoaiThietBi As LTB, DM_Quannhan As QN, DM_Donvi As DV " +
+                            "WHERE TB.idLoaiTB = LTB.IdLoaiTB And TB.idQuannhan = QN.IDQuannhan and QN.idDonvi = DV.IdDonvi and ";
+
+            query += col;
+            query += " like N'%";
+            query += st + "%'";
+
+            using (SqlConnection sqlConnection = ConnectionString.getConnection())
+            {
+                sqlConnection.Open();
+
+                dataAdapter = new SqlDataAdapter(query, sqlConnection); //tao 1 ket noi CSDL moi
+
+                dataAdapter.Fill(bangXM);   // dien du lieu vao bang
+                sqlConnection.Close();
+            }
+            return bangXM;
+        }
+        #endregion
     }
 }

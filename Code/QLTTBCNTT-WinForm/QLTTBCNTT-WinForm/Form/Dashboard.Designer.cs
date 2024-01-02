@@ -135,6 +135,7 @@
             this.btnTBQN_DB.TabIndex = 8;
             this.btnTBQN_DB.Text = "QN mượn";
             this.btnTBQN_DB.UseVisualStyleBackColor = true;
+            this.btnTBQN_DB.Click += new System.EventHandler(this.btnTBQN_DB_Click);
             // 
             // btnTBDV_DB
             // 
@@ -145,6 +146,7 @@
             this.btnTBDV_DB.TabIndex = 9;
             this.btnTBDV_DB.Text = "ĐV mượn";
             this.btnTBDV_DB.UseVisualStyleBackColor = true;
+            this.btnTBDV_DB.Click += new System.EventHandler(this.btnTBDV_DB_Click);
             // 
             // RB_Doi
             // 
