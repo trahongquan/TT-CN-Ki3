@@ -63,6 +63,7 @@
             this.dtgvTBQN.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvTBQN.Size = new System.Drawing.Size(554, 425);
             this.dtgvTBQN.TabIndex = 0;
+            this.dtgvTBQN.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dtgvTBQN_MouseClick);
             // 
             // DelTBQN
             // 
@@ -73,6 +74,7 @@
             this.DelTBQN.TabIndex = 1;
             this.DelTBQN.Text = "Xóa";
             this.DelTBQN.UseVisualStyleBackColor = true;
+            this.DelTBQN.Click += new System.EventHandler(this.DelTBQN_Click);
             // 
             // ModifyTBQN
             // 
@@ -83,6 +85,7 @@
             this.ModifyTBQN.TabIndex = 2;
             this.ModifyTBQN.Text = "Sửa";
             this.ModifyTBQN.UseVisualStyleBackColor = true;
+            this.ModifyTBQN.Click += new System.EventHandler(this.ModifyTBQN_Click);
             // 
             // AddTBQN
             // 
@@ -93,6 +96,7 @@
             this.AddTBQN.TabIndex = 3;
             this.AddTBQN.Text = "Thêm";
             this.AddTBQN.UseVisualStyleBackColor = true;
+            this.AddTBQN.Click += new System.EventHandler(this.AddTBQN_Click);
             // 
             // label1
             // 
@@ -156,6 +160,7 @@
             this.cbbIDQN.Size = new System.Drawing.Size(129, 21);
             this.cbbIDQN.TabIndex = 10;
             this.cbbIDQN.ValueMember = "IDQuannhan";
+            this.cbbIDQN.TextChanged += new System.EventHandler(this.ccbidQN_TextChanged);
             // 
             // cbbIDTB
             // 
@@ -169,6 +174,7 @@
             this.cbbIDTB.Size = new System.Drawing.Size(129, 21);
             this.cbbIDTB.TabIndex = 11;
             this.cbbIDTB.ValueMember = "IdThietBi";
+            this.cbbIDTB.TextChanged += new System.EventHandler(this.cbbidTB_TextChanged);
             // 
             // DateBorrow
             // 
