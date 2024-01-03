@@ -35,6 +35,7 @@ namespace QLTTBCNTT_WinForm
             dtgvTBQN.Columns[4].HeaderText = "Ngày trả biên chế";
 
         }
+
         #region Button Funcion
         private void AddTBQN_Click(object sender, EventArgs e)
         {
@@ -105,7 +106,6 @@ namespace QLTTBCNTT_WinForm
 
         #endregion
 
-
         #region Bổ trợ
 
         private TBQN GetTBQN()
@@ -152,6 +152,16 @@ namespace QLTTBCNTT_WinForm
             if (TBQN.Cells[3].Value.ToString() != "") DateBorrow.Value = Convert.ToDateTime(TBQN.Cells[3].Value.ToString());
             if (TBQN.Cells[4].Value.ToString() != "") DateReturn.Value = Convert.ToDateTime(TBQN.Cells[4].Value.ToString());
         }
+
+        private void dtgvTBQN_MouseClick(object sender, MouseEventArgs e)
+        {
+            Display();
+        }
+        private void ccbidQN_TextChanged(object sender, EventArgs e)
+        {
+           // if (cbbIDQN.Text != "") txtQN.Text = QueryTBQN.getTBQN_idQN(cbbIDQN.Text);
+        }
+
         private Boolean CheckIDTB_TBDV()
         {
             string ds = QueryTBQN.getTBQN_idTB_check(cbbIDTB.Text);
@@ -163,20 +173,9 @@ namespace QLTTBCNTT_WinForm
             }
             else return true;
         }
-
-        private void dtgvTBQN_MouseClick(object sender, MouseEventArgs e)
-        {
-            Display();
-        }
-        private void ccbidQN_TextChanged(object sender, EventArgs e)
-        {
-            // if (cbbIDQN.Text != "") txtQN.Text = QueryTBQN.getTBQN_idQN(cbbIDQN.Text);
-        }
-
-
         private void cbbidTB_TextChanged(object sender, EventArgs e)
         {
-            // if (cbbIDTB.Text != "") txtTB.Text = QueryTBQN.getTBDV_idTB(cbbIDTB.Text);
+           // if (cbbIDTB.Text != "") txtTB.Text = QueryTBQN.getTBDV_idTB(cbbIDTB.Text);
         }
 
         #endregion
