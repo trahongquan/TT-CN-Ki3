@@ -43,8 +43,6 @@ name: .NET Core Desktop
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
 # Cấu hình công việc chính của workflow
 jobs:
