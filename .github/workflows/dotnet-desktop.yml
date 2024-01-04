@@ -57,9 +57,9 @@ jobs:
 
     env:
       Solution_Name: QLTTBCNTT-WinForm.sln
-      Test_Project_Path: code/QLTTBCNTT-WinForm.Tests
-      Wap_Project_Directory: QLTTBCNTT-WinForm/QLTTBCNTT-WinForm
-      Wap_Project_Path: code/QLTTBCNTT-WinForm/QLTTBCNTT-WinForm/QLTTBCNTT-WinForm.csproj
+      Test_Project_Path: code\QLTTBCNTT-WinForm
+      Wap_Project_Directory: code\QLTTBCNTT-WinForm\QLTTBCNTT-WinForm
+      Wap_Project_Path: code\QLTTBCNTT-WinForm\QLTTBCNTT-WinForm\QLTTBCNTT-WinForm.csproj
 
       # Solution_Name: QLTTBCNTT-WinForm.sln                        # Replace with your solution name, i.e. MyWpfApp.sln.
       # # Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
@@ -82,9 +82,9 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
 
-    # Execute all unit tests in the solution
-    # - name: Execute unit tests
-    #   run: dotnet test
+    Execute all unit tests in the solution
+    - name: Execute unit tests
+      run: dotnet test
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
