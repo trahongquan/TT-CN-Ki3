@@ -207,7 +207,6 @@ namespace QLTTBCNTT_WinForm
         {
             if (cbbidQN.Text != "")
             {
-                //txtQN.Text = QueryTB.getQN_Thietbi(cbbidQN.SelectedValue.ToString()).Tables[0].Rows[0][0].ToString();
                 txtDonvi.Enabled = false;
                 cbbidDV.Enabled = false;
                 cbbidDV.Text = QueryTB.getQN_Thietbi(cbbidQN.SelectedValue.ToString()).Tables[0].Rows[0][1].ToString();
