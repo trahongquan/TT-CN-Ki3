@@ -1,0 +1,10 @@
+https://www.youtube.com/watch?v=HQiharwG4kI&ab_channel=KhalidDinh
+----------------
+Link GitHub:
+Dev pipeline: https://github.com/beensand97/khalid-spring
+QA & Staging pipeline: https://github.com/beensand97/khalid-ansible
+
+
+Commands:
+Tạo Jenkins container: docker container run --name khalid-jenkins -d -p 8081:8080 --privileged -p 5000:5000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home --group-add $(stat -c '%g' /var/run/docker.sock) khaliddinh/jenkins		
+Chú ý: thay đổi tên container “khalid-jenkins” thành container của bạn
